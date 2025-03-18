@@ -1,0 +1,1 @@
+from models.dao.dao_cliente import COLUNAS as _colunas
