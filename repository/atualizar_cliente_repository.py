@@ -8,18 +8,16 @@ from uuid import UUID
 
 def atualizar_cliente_repository(id: UUID, valores: dict):
     try:
-        # Construindo a cláusula WHERE corretamente
         where_clause = "id = %s"
         params = (id,)  # Colocando o id em uma tupla para o parâmetro de WHERE
         
-        # Executando a atualização com a cláusula WHERE correta
         with _c.cursor() as cursor:
             linhas_atualizadas = executar_update(
                 cursor,
                 _tabela,
                 valores,
-                where=where_clause,  # Passando a cláusula WHERE como string
-                params=params,  # Passando o parâmetro id
+                where=where_clause, 
+                params=params,
             )
 
             # Após o UPDATE, consulta o cliente para retornar os dados atualizados
