@@ -3,5 +3,6 @@ from .criar_cliente_controller import criar_cliente_controller
 from .criar_produto_controller import criar_produto_controller
 from .criar_plano_controller import criar_plano_controller
 from .consultar_cliente_controller import consultar_cliente_controller
-from .excluir_cliente_controller import excluir_cliente_controller
+from .consultar_plano_controller import consultar_plano_controller
 from .atualizar_cliente_controller import atualizar_cliente_controller
+from .excluir_cliente_controller import excluir_cliente_controller

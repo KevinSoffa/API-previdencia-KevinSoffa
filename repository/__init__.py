@@ -6,3 +6,4 @@ from .consultar_produto_repository import consultar_produto_repository
 from .excluir_cliente_repository import excluir_cliente_repository
 from .excluir_cliente_repository import excluir_planos_repository
 from .atualizar_cliente_repository import atualizar_cliente_repository
+from .consultar_plano_repository import consultar_plano_repository
