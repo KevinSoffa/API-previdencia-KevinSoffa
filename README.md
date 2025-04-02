@@ -51,17 +51,19 @@ Testes automatizados para verificar o comportamento das camadas de Service, Repo
 ### Diretório 🗂️
 ```plaintext
 📦 minha_api
- ┣ 📂 controller    # Controladores das rotas
- ┣ 📂 models        # Definições dos modelos e entidades
- ┣ 📂 repository    # Comunicação com o banco de dados
- ┣ 📂 service       # Lógica de negócios
- ┣ 📂 test          # Testes automatizados
- ┣ 📜 .env          # Configurações do ambiente
- ┣ 📜 .gitignore    # Arquivos ignorados pelo Git
- ┣ 📜 Dockerfile    # Configuração para container Docker
- ┣ 📜 main.py       # Ponto de entrada da aplicação
- ┣ 📜 pytest.ini    # Configurações do Pytest
- ┗ 📜 requirements.txt  # Dependências do projeto
+ ┣ 📂 controller
+ ┣ 📂 models
+ ┣ 📂 k8s 
+ ┣ 📂 repository
+ ┣ 📂 service
+ ┣ 📂 test 
+ ┣ 📜 .env
+ ┣ 📜 .gitignore
+ ┣ 📜 Dockerfile
+ ┣ 📜 main.py
+ ┣ 📜 pytest.ini
+ ┗ 📜 requirements.txt
+
 ```
 
 
