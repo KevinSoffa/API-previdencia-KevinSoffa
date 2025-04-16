@@ -287,3 +287,35 @@ pytest test/test_consultar_cliente_service.py -v
  ```bash
 pytest test/test_consultar_plano_service.py -v
 ```
+
+## 🚢 Kubernetes [ Deploy ]
+### 🚀 Deploy da aplicação FastAPI no Kubernetes
+ Kubernetes para rodar e expor a API FastAPI.
+
+### 📦 Deployment (`deployment.yaml`)
+
+O `Deployment` define como a aplicação será executada no cluster:
+
+- **Replicas**: 2 pods da aplicação serão criados.
+- **Container**: Usa a imagem `meu-usuario/minha-api:latest`.
+- **Porta interna**: A aplicação roda na porta `8000`.
+- **Variáveis de ambiente**: Carregadas de um `ConfigMap` chamado `fastapi-config`.
+
+### 🚀 Deploy do PostgreSQL no Kubernetes
+Kubernetes para rodar o PostgreSQL como um contêiner no cluster.
+
+### 📦 Deployment do PostgreSQL (`postgres-deployment.yaml`)
+
+O `Deployment` do PostgreSQL cria um pod que executa o banco de dados, configurando as variáveis de ambiente necessárias para o banco.
+
+- **Replicas**: 1 pod do PostgreSQL.
+- **Imagem**: Usa a imagem oficial `postgres:14`.
+- **Variáveis de ambiente**: Configurações do PostgreSQL (usuário, senha e nome do banco).
+- **Porta interna**: O PostgreSQL expõe a porta `5432`.
+
+## 🐳 Docker 
+Este repositório contém uma aplicação FastAPI empacotada em um contêiner Docker. A aplicação foi criada utilizando o Python 3.11 e o servidor ASGI Uvicorn.
+
+### Pré-requisitos
+- Docker instalado na sua máquina.
+- A aplicação foi construída com FastAPI, portanto, é necessário ter um arquivo `requirements.txt` contendo todas as dependências do Python.
