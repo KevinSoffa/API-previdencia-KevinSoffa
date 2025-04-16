@@ -9,12 +9,14 @@
 
 ## Sumário 🔄
 
-1. [Descrição](#descrição)
+1. [Descrição](#descrição-)
 2. [Tecnologias](#tecnologias)
-3. [Desenvolvimento](#desenvolvimento)
-4. [Configuração do Ambiente](#configuração-do-ambiente)
-5. [Modo de Uso](#modo-de-uso)
-6. [Testes Automatizados](#testes-automatizados)
+3. [Desenvolvimento](#desenvolvimento-)
+4. [Configuração do Ambiente](#-configuração-do-ambiente)
+5. [Modo de Uso](#modo-de-uso-)
+6. [Testes Automatizados](#testes-automatizados-)
+7. [Kubernetes [ Deploy ]](#-kubernetes--deploy-)
+8. [Docker](#-docker)
 
 ---
 ## Descrição 📝
