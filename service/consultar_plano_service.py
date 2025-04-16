@@ -8,7 +8,6 @@ def consultar_plano_service(id_plano: str):
         raise ValueError("O ID do plano não pode ser vazio")
     
     plano = consultar_plano_repository(id_plano)
-    print(plano["idcliente"])
     id_cliente = plano["idcliente"]
     cliente = consultar_cliente_service(id_cliente)
     
