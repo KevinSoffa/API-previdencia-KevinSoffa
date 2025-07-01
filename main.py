@@ -5,7 +5,6 @@ from fastapi import FastAPI
 
 app = FastAPI(title="Kevin Soffa | Plano de previdência")
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

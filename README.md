@@ -4,9 +4,6 @@
   <img height="180em" src="https://raw.githubusercontent.com/KevinSoffa/API-previdencia-KevinSoffa/refs/heads/develop/img/Kevin%20Soffa%20(2).png"/>
 </div>
 
-
-## Sumário 🔄
-
 ## Sumário 🔄
 
 1. [Descrição](#descrição-)
@@ -17,6 +14,7 @@
 6. [Testes Automatizados](#testes-automatizados-)
 7. [Kubernetes [ Deploy ]](#-kubernetes--deploy-)
 8. [Docker](#-docker)
+9. [Autenticação JWT](#-autenticação-jwt-no-fastapi)
 
 ---
 ## Descrição 📝
@@ -54,7 +52,8 @@ Testes automatizados para verificar o comportamento das camadas de Service, Repo
 
 ### Diretório 🗂️
 ```plaintext
-📦 minha_api
+📦 Kevin Soffa | Plano de previdência
+ ┣ 📂 auth
  ┣ 📂 controller
  ┣ 📂 models
  ┣ 📂 k8s 
@@ -64,6 +63,7 @@ Testes automatizados para verificar o comportamento das camadas de Service, Repo
  ┣ 📜 .env
  ┣ 📜 .gitignore
  ┣ 📜 Dockerfile
+ ┣ 📜 gerador_secret_key.py
  ┣ 📜 main.py
  ┣ 📜 pytest.ini
  ┗ 📜 requirements.txt
@@ -97,6 +97,11 @@ Antes de executar o projeto, configure as seguintes variáveis de ambiente no se
 | DATABASE              | Nome do banco de dados que a aplicação irá utiliza  |  str        |
 | USER                  | Nome de usuário para autenticação no banco de dados |  str        |
 | PASSWORD              | Senha do usuário para acessar o banco de dados      |  str        |
+| SECRET_KEY            | Chave secreta para geração de Token [ JWT ]         |  str        |
+| ALGORITHM             | Algoritmo de criptografia o JWT vai usar            |  str        |
+| EXPIRATION_MINUTES    | Tempo em minutos da validade do Token               |  int        |
+| USER_JWT              | Usuário para Login para criação de Token            |  str        |
+| PASSWORD_JWT          | Senha do usário para criação de Token               |  str        |
 
 
 
@@ -109,6 +114,15 @@ HOST=
 DATABASE=
 USER=
 PASSWORD=
+
+##################################################
+### AUTENTICAÇÃO JWT
+##################################################
+SECRET_KEY = 
+ALGORITHM = 
+EXPIRATION_MINUTES = 
+USER_JWT=
+PASSWORD_JWT=
 ```
 
 #### ⚡ Para iniciar o servidor local python via prompt de comando basta rodar o comando a baixo na pasta raiz
@@ -321,3 +335,48 @@ Este repositório contém uma aplicação FastAPI empacotada em um contêiner Do
 ### Pré-requisitos
 - Docker instalado na sua máquina.
 - A aplicação foi construída com FastAPI, portanto, é necessário ter um arquivo `requirements.txt` contendo todas as dependências do Python.
+
+## 🔐 Autenticação JWT no FastAPI
+#### API Previdência utiliza autenticação via JWT (JSON Web Token) para proteger rotas da API.
+
+### 📌 Como funciona:
+#### 1 Geração de Token
+
+ - Após login, a API gera um token JWT.
+ - O token é assinado com uma chave secreta (SECRET_KEY).
+#### Exemplo de Login para gerar o TOKEN
+#### POST 🔵
+ ```bash
+/kevinsoffa/login
+```
+#### JSON de envio ⬆️
+ ```bash
+{
+    "usuário":"user",
+    "senha":"password"
+}
+```
+#### Resposta ⬇️ 
+```bash
+HTTP 200 OK
+{
+  "access_token": "<seu token>"
+}
+```
+
+#### 2 Envio do Token
+- O cliente (frontend ou API client) deve enviar o token no header da requisição:
+```bash
+Authorization: Bearer <token>
+```
+
+#### 3 Validação do Token
+- As rotas protegidas usam a dependência de segurança JWTBearer.
+- Ao receber a requisição, a API:
+  - Extrai o token do header
+  - Valida assinatura e expiração (30min)
+  - Se inválido ou expirado → retorna erro 403 Forbidden
+  - Se válido → libera o acesso à rota
+
+#### 📄 Configuração:
+As variáveis de autenticação devem estar no arquivo .env

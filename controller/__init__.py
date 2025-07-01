@@ -6,3 +6,4 @@ from .consultar_cliente_controller import consultar_cliente_controller
 from .consultar_plano_controller import consultar_plano_controller
 from .atualizar_cliente_controller import atualizar_cliente_controller
 from .excluir_cliente_controller import excluir_cliente_controller
+from .login_controller import login
