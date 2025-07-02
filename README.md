@@ -14,7 +14,7 @@
 6. [Testes Automatizados](#testes-automatizados-)
 7. [Kubernetes [ Deploy ]](#-kubernetes--deploy-)
 8. [Docker](#-docker)
-9. [Autenticação JWT](#-autenticação-jwt)
+9. [Autenticação JWT](#-autenticação-jwt-no-fastapi)
 
 ---
 ## Descrição 📝
