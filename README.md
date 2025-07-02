@@ -14,11 +14,15 @@
 6. [Testes Automatizados](#testes-automatizados-)
 7. [Kubernetes [ Deploy ]](#-kubernetes--deploy-)
 8. [Docker](#-docker)
-9. [Autenticação JWT](#-autenticação-jwt-no-fastapi)
+9. [Autenticação JWT](#-autenticação-jwt)
 
 ---
 ## Descrição 📝
-Esta é uma API desenvolvida em Python utilizando FastAPI, seguindo a arquitetura MVC (Model-View-Controller). A API conta com testes automatizados para garantir qualidade e confiabilidade, além de utilizar PostgreSQL como banco de dados. Que simula o back-end de uma consultoria de vendas de planos de previdência
+Esta é uma API desenvolvida em Python com o framework FastAPI, estruturada seguindo o padrão de arquitetura MVC (Model-View-Controller). A aplicação utiliza PostgreSQL como banco de dados e simula o back-end de uma consultoria de vendas de planos de previdência.
+
+Para garantir segurança nas requisições, a API implementa autenticação via JWT (JSON Web Token), assegurando que apenas usuários autorizados possam acessar os recursos disponíveis.
+
+Além disso, a aplicação conta com testes automatizados, garantindo a qualidade, integridade e confiabilidade das funcionalidades implementadas.
 
 ## Tecnologias
 <div align="left">
@@ -26,6 +30,7 @@ Esta é uma API desenvolvida em Python utilizando FastAPI, seguindo a arquitetur
     <img src="https://skillicons.dev/icons?i=fastapi" height="40" alt="fastapi logo"/>
     <img src="https://skillicons.dev/icons?i=postgres" height="40" alt="postgresql logo"/>
     <img src="https://raw.githubusercontent.com/KevinSoffa/API-previdencia-KevinSoffa/refs/heads/develop/img/pytestlogo.jpg" height="40" alt="postgresql logo"/>
+    <img src="https://media.licdn.com/dms/image/v2/D5612AQGq2VpDubw9pw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721187427037?e=1756944000&v=beta&t=KSC7PSk-wozhyfVmEzjdvBmF_5LdCoNqdVN1zWSdif0"height="40" alt="jwt logo">
 </div>
 
 ## Desenvolvimento 👨‍💻
@@ -50,9 +55,18 @@ Esta é uma API desenvolvida em Python utilizando FastAPI, seguindo a arquitetur
 `Test` ✅ 
 Testes automatizados para verificar o comportamento das camadas de Service, Repository, e outras partes do sistema, garantindo que as funcionalidades estejam corretas e que futuras mudanças não quebrem o sistema.
 
+`Autenticação JWT` ✅
+JWT (JSON Web Token) é um padrão aberto para autenticação e troca segura de informações entre duas partes, usando um token compacto e autossuficiente.
+- Ao fazer login ou uma requisição autenticada, o servidor gera um token JWT, que contém dados do usuário e uma data de expiração.
+- Esse token é assinado com uma chave secreta para garantir sua integridade.
+- O cliente (ex: frontend ou outro sistema) envia esse token no header da requisição
+- O servidor valida o token em cada requisição:
+  - Se for válido e não estiver expirado → libera o acesso
+  - Se inválido ou expirado → bloqueia a requisição
+
 ### Diretório 🗂️
 ```plaintext
-📦 Kevin Soffa | Plano de previdência
+📦 Kevin Soffa | API Plano de previdência
  ┣ 📂 auth
  ┣ 📂 controller
  ┣ 📂 models
@@ -360,7 +374,7 @@ Este repositório contém uma aplicação FastAPI empacotada em um contêiner Do
 ```bash
 HTTP 200 OK
 {
-  "access_token": "<seu token>"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrZXZpbl9zb2ZmYSIsImV4cCI6MTc1MTMzOTQxNX0.bKYqFWqpSrw4lA-MI-YRdC-_x7M4nNrwi7WYFCm2hPY"
 }
 ```
 
