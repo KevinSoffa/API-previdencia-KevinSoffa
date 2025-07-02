@@ -29,7 +29,7 @@ Além disso, a aplicação conta com testes automatizados, garantindo a qualidad
     <img src="https://skillicons.dev/icons?i=py" height="40" alt="python logo"/>
     <img src="https://skillicons.dev/icons?i=fastapi" height="40" alt="fastapi logo"/>
     <img src="https://skillicons.dev/icons?i=postgres" height="40" alt="postgresql logo"/>
-    <img src="https://raw.githubusercontent.com/KevinSoffa/API-previdencia-KevinSoffa/refs/heads/develop/img/pytestlogo.jpg" height="40" alt="postgresql logo"/>
+    <img src="https://raw.githubusercontent.com/KevinSoffa/API-previdencia-KevinSoffa/refs/heads/develop/img/pytestlogo.jpg" height="40" alt="pytest logo"/>
     <img src="https://media.licdn.com/dms/image/v2/D5612AQGq2VpDubw9pw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721187427037?e=1756944000&v=beta&t=KSC7PSk-wozhyfVmEzjdvBmF_5LdCoNqdVN1zWSdif0"height="40" alt="jwt logo">
 </div>
 
